@@ -1,0 +1,16 @@
+.product-card {
+  max-width: 150px;
+}
+
+mat-card:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+mat-card {
+  transition: transform 0.3s;
+}
+
+.sort-prodcuts {
+  margin-left: 20px;
+}

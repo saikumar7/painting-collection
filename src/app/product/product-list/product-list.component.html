@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Our latest collection</h2>
+
+  <mat-form-field>
+    <input type="text" matInput placeholder="search" (keyup)="applyFilter($event)">
+  </mat-form-field>
+
+  <mat-form-field class="sort-prodcuts">
+    <mat-select placeholder="Sort" (selectionChange)="sortProducts($event.value)">
+      <mat-option value="priceLowToHigh">Price: Low to High</mat-option>
+      <mat-option value="priceHighToLow">Price: High to Low</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div fxLayout="row wrap" fxLayoutGap="50px grid">
+  @for (product of filteredProducts; track $index) {
+      <div>
+        <mat-card class="product-card" (click)="addToCart(product)">
+          <mat-card-header>
+            <mat-card-title>{{product.name}}</mat-card-title>
+            <mat-card-subtitle>{{product.price | currency: 'USD'}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="assets/images/{{product.image_url}}">
+          <mat-card-content>
+            
+          </mat-card-content>
+        </mat-card>
+      </div>
+    }
+  </div>
+</div>
+
+
